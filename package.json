@@ -1,0 +1,35 @@
+{
+  "name": "osm-meta-util",
+  "version": "0.1.4",
+  "description": "A tool to download OSM metadata",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/osmlab/osm-meta-util.git"
+  },
+  "keywords": [
+    "osm",
+    "metadata",
+    "changesets"
+  ],
+  "author": "Marc Farra <marc@developmentseed.org>",
+  "contributors": [
+    "Alireza J <alireza@developmentseed.org>",
+    "Dale Kunce <dale.kunce@redcross.org>"
+  ],
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/osmlab/osm-meta-util/issues"
+  },
+  "homepage": "https://github.com/osmlab/osm-meta-util",
+  "dependencies": {
+    "node-expat": "^2.3.5",
+    "request": "^2.53.0"
+  },
+  "devDependencies": {
+      "through": "^2.3.6"
+  }
+}
