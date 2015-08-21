@@ -10,6 +10,7 @@ parser.add_argument('-S', '--separator', default=',', help='CSV separator used, 
 parser.add_argument('-i', '--index', action='store_true', help='Write row names (index)')
 parser.add_argument('-I', '--indexlabel', help='Label for index column')
 parser.add_argument('-u', '--usecols', nargs='+', help='List of names of columns to use')
+parser.add_argument('-q', '--unique', nargs='+', help='Column to make unique')
 parser.add_argument('-n', '--names', nargs='+', help='Column names to use')
 parser.add_argument('-a', '--append', nargs='+', help='Names of columns to append')
 parser.add_argument('-p', '--printdata', action='store_true', help='Print formatted data when done')
@@ -38,9 +39,6 @@ except ValueError:
     print('Could not read JSON data from "%s":\n' % infile)
     raise
 
-# make user unique
-df.groupby('user')
-
 # Append columns if given
 if args.append is not None:
     for additional_column in args.append:
@@ -50,6 +48,10 @@ if args.append is not None:
 # Change column names if given
 if args.names is not None:
     df.columns = args.names
+
+# unique column?
+if args.unique is not None:
+    df = df.groupby(args.unique)
 
 # Convert
 if args.usecols is None:
